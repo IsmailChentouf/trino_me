@@ -115,7 +115,7 @@ jobs:
           $MAVEN failsafe:integration-test failsafe:verify -B --strict-checksums -P ci -pl :trino-jdbc
       - name: Clean Maven Output
         run: $MAVEN clean -pl '!:trino-server,!:trino-cli'
-      - uses: docker/setup-qemu-action@4574d27a4764455b42196d70a065bc6853246a25 # v3
+      - uses: docker/setup-qemu-action@29109295f81e9208d7d86ff1c6c12d2833863392 # v3
         with:
           platforms: arm64,ppc64le
       - name: Build and Test Docker Image
@@ -1051,7 +1051,7 @@ jobs:
           # The job doesn't build anything, so the ~/.m2/repository cache isn't useful
           cache: 'false'
       - name: Product tests artifact
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v5
         with:
           name: product tests and server tarball
       - name: Fix artifact permissions
